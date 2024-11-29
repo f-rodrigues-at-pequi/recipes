@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <title>Receitas</title>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        branco: {
+                            principal: '#FFFFFF',
+                            secundario: '#D9D7D7FF'
+                        },
+                        amarelo: {
+                            principal: '#FFDB63',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-branco-principal h-screen relative">
+    <div class="bg-amarelo-principal py-3"></div>
+    <header class="flex justify-between items-center py-4 mx-auto w-[95%] gap-8">
+        <div class="flex gap-4">
+            <img class="w-10" src="../public/images/Ico.svg" alt="...">
+            <h1 class=" hidden lg:block text-2xl font-normal self-end">Delícias à Mesa</h1>
+        </div>
+        <div class=" hidden lg:block bg-white min-h-[40vh] flex items-center static w-auto min-h-fit">
+            <ul class="flex flex-col lg:flex-row gap-4 items-center text-2xl font-bold">
+                <li>
+                    <a href="../index.html">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Receitas
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Sobre nós
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="flex items-center gap-8">
+            <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
+            <div class="relative">
+                <div class="absolute inset-y-0 start-0 flex start-0 flex items-center ps-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                    </svg>
+                </div>
+                <input type="search" placeholder="Search Recipes" id="default-search" class="block shadow w-full p-4 ps-10 text-sm text-gray-900 border rounded-lg bg-gray-50 focus:outline-none hover:border-yellow-300 hover:ring-1 hover:ring-yellow-500 focus:border-yellow-500">
+            </div>
+            <button class="text-3xl cursor-pointer lg:hidden" id="menu-mobile">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+    <!--nav-links h-screen absolute bg-white min-h-[40vh] top-[-100%] flex items-center-->
+    <div class="lg:hidden nav-links absolute w-full bg-white top-[-100%] min-h-[20vh]">
+        <ul class="flex flex-col lg:flex-row gap-4 items-center py-10 text-2xl font-bold">
+            <li>
+                <a href="../index.html">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    Receitas
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    Sobre nós
+                </a>
+            </li>
+        </ul>
+    </div>
+    <section class="w-full h-[20vh] md:h-[40vh] bg-cover bg-center" style="background-image: url('../public/images/Banner.png'); background-repeat: no-repeat">
+    </section>
+    <section class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+        <div class="flex justify-center py-12 lg:mb-12 lg:mt-32">
+            <h1 class="font-bold md:text-4xl">Receitas Mais Procuradas</h1>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-3 xl:grid-cols-3" id="mais_recentes">
+        </div>
+        <ul class="flex items-center justify-center -space-x-px h-10 text-base">
+            <li>
+                <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">1</a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">2</a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">3</a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">4</a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">5</a>
+            </li>
+        </ul>
+    </section>
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/ui.js"></script>
+    <script type="module" src="/src/api.js"></script>
+</body>
+</html>
