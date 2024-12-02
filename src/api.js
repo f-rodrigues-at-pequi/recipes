@@ -1,4 +1,4 @@
-const URL_API = "http://localhost:3000/recipes"
+const URL_API = "https://api-recipes-l0jkaz42m-fredericos-projects-230ee5df.vercel.app/recipes"
 const api = {
 
     async buscarReceitaComId(id) {
