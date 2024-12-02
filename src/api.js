@@ -9,6 +9,7 @@ const api = {
         }
          catch (error) {
             alert("Erro para buscar a receita")
+             return null
         }
     },
     async buscarReceitasPaginadas(page) {
@@ -20,6 +21,7 @@ const api = {
         }
          catch (error) {
             alert("Erro para buscar as Receitas")
+             return null
         }
     },
     async buscarTodasReceitas() {
