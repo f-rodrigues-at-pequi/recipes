@@ -1,4 +1,4 @@
-const URL_API = "https://api-recipes-l0jkaz42m-fredericos-projects-230ee5df.vercel.app/recipes";
+const URL_API = "https://api-recipes-one.vercel.app/"
 const api = {
 
     async buscarReceitaComId(id) {
@@ -17,8 +17,8 @@ const api = {
         try {
             const response = await fetch(`${URL_API}/?_page=${page}`)
             const receita = await response.json()
-            console.log(receita.data)
-            return receita.data
+            console.log(receita)
+            return receit
         }
          catch (error) {
             alert("Erro para buscar as Receitas")
@@ -35,5 +35,5 @@ const api = {
         }
     },
 }
-window.api = api
+
 export default api
