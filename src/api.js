@@ -11,6 +11,17 @@ const api = {
             alert("Erro para buscar a receita")
         }
     },
+    async buscarReceitasPaginadas(page) {
+        try {
+            const response = await fetch(`${URL_API}/?_page=${page}`)
+            const receita = await response.json()
+            console.log(receita.data)
+            return receita.data
+        }
+         catch (error) {
+            alert("Erro para buscar as Receitas")
+        }
+    },
     async buscarTodasReceitas() {
         try {
             const response = await fetch(`${URL_API}`)
@@ -21,5 +32,5 @@ const api = {
         }
     },
 }
-
+window.api = api
 export default api

@@ -4,6 +4,8 @@ import api from "./api.js";
 document.addEventListener("DOMContentLoaded", () => {
     handleMaisRecentes()
     handleMenuMobile()
+    handleReceitas()
+    handleSearch()
 })
 
 function handleMenuMobile() {
@@ -11,8 +13,8 @@ function handleMenuMobile() {
     const menu = document.querySelector("#menu-mobile");
     menu.addEventListener("click", (e) => {
         e.preventDefault();
-        navLinks.classList.toggle("top-[12%]");
-        navLinks.classList.toggle("md:top-[9%]");
+        navLinks.classList.toggle("top-[17%]");
+        navLinks.classList.toggle("md:top-[12%]");
     })
 }
 
@@ -20,4 +22,37 @@ function handleMaisRecentes () {
     const maisRecentes = document.querySelector("#section-mais-recentes")
     if(maisRecentes)
         ui.renderizarReceitasMaisProcuradas()
+}
+
+function handleReceitas () {
+    const divReceitas = document.querySelector("#div_receitas");
+    if(divReceitas){
+            ui.renderizarReceitas()
+            const pagination = document.querySelectorAll(".myPaginate");
+            pagination.forEach(el => {
+                el.addEventListener("click", (e) => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    })
+                    ui.renderizarReceitas(el.textContent);
+                })
+            })
+
+    }
+}
+
+function handleSearch() {
+    const search = document.querySelector("#default-search");
+
+    search.addEventListener("keyup", async (e) => {
+        ui.renderizaSearchInput(e.target.value)
+    })
+
+    search.addEventListener("blur", async (e) => {
+        const listSearch = document.querySelector('#list-search')
+        listSearch.classList.add('hidden')
+        listSearch.classList.remove('absolute')
+        search.value = ''
+    })
 }
