@@ -17,6 +17,7 @@ const api = {
         try {
             const response = await fetch(`${URL_API}/?_page=${page}`)
             const receita = await response.json()
+            console.log(receita)
             return receita.data
         }
          catch (error) {

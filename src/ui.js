@@ -53,6 +53,7 @@ const ui = {
         try {
 
             const receitas = await api.buscarReceitasPaginadas(page)
+            console.log(receitas)
             if( receitas.length > 0 ){
                 const cardsHTML = receitas
                     .filter(receita => receita)
