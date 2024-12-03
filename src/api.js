@@ -1,4 +1,4 @@
-const URL_API = "https://api-recipes-one.vercel.app/"
+const URL_API = "https://api-recipes-one.vercel.app/recipes"
 const api = {
 
     async buscarReceitaComId(id) {
