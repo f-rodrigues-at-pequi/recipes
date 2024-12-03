@@ -51,13 +51,18 @@ const ui = {
 
         const divReceitas = document.querySelector('#div_receitas');
         try {
-            const receitas = await api.buscarReceitasPaginadas(page)
-            const cardsHTML = receitas
-                .filter(receita => receita)
-                .map(receita => this.criarCardReceitas(receita))
-                .join('')
 
-            divReceitas.innerHTML = cardsHTML;
+            const receitas = await api.buscarReceitasPaginadas(page)
+            if( receitas.length > 0 ){
+                const cardsHTML = receitas
+                    .filter(receita => receita)
+                    .map(receita => this.criarCardReceitas(receita))
+                    .join('')
+
+                divReceitas.innerHTML = cardsHTML;
+            } else {
+                console.log(receitas)
+            }
         } catch (e) {
             alert("Erro para acessar receitas")
             console.error("Erro para acessar receitas: "+e)
