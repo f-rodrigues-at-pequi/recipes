@@ -48,7 +48,6 @@ const ui = {
 
     async renderizarReceitas (page) {
         if(!page) page = 1
-            console.log('oi')
 
         const divReceitas = document.querySelector('#div_receitas');
         try {
@@ -98,7 +97,6 @@ const ui = {
     },
 
     criarCardAboutReceitas(receita) {
-        console.log(receita)
         const ingredientes = receita.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')
         const instrucoes = receita.instructions.map(instruction => `<li>${instruction}</li>`).join('')
         return `  
@@ -135,10 +133,7 @@ const ui = {
     async renderizaSearchInput(valueToFilter){
         const listSearch = document.querySelector('#list-search')
         const searchResults = document.querySelector('#search-results')
-
-            console.log('oi')
         if(valueToFilter.length > 0){
-            console.log(valueToFilter.length)
             listSearch.classList.remove('hidden')
             listSearch.classList.add('absolute')
 
