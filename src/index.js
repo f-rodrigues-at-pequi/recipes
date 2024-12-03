@@ -13,7 +13,7 @@ function handleMenuMobile() {
     const menu = document.querySelector("#menu-mobile");
     menu.addEventListener("click", (e) => {
         e.preventDefault();
-        navLinks.classList.toggle("top-[17%]");
+        navLinks.classList.toggle("top-[15%]");
         navLinks.classList.toggle("md:top-[12%]");
     })
 }
