@@ -1,5 +1,4 @@
 import ui from "./ui.js";
-import api from "./api.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     handleMaisRecentes()
@@ -46,13 +45,12 @@ function handleSearch() {
     const search = document.querySelector("#default-search");
 
     search.addEventListener("keyup", async (e) => {
-        ui.renderizaSearchInput(e.target.value)
-    })
+        await ui.renderizaSearchInput(e.target.value);
+    });
 
     search.addEventListener("blur", async (e) => {
-        const listSearch = document.querySelector('#list-search')
-        listSearch.classList.add('hidden')
-        listSearch.classList.remove('absolute')
-        search.value = ''
-    })
+        if (e.target.value === '') {
+            await ui.renderizaSearchInput('');
+        }
+    });
 }

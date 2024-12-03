@@ -53,7 +53,6 @@ const ui = {
         try {
 
             const receitas = await api.buscarReceitasPaginadas(page)
-            console.log(receitas)
             if( receitas.length > 0 ){
                 const cardsHTML = receitas
                     .filter(receita => receita)
@@ -88,6 +87,7 @@ const ui = {
     },
 
     abrirReceitas (id) {
+        console.log(id)
         window.location.href = `about-recipe.html?id=${id}`
     },
 
@@ -142,18 +142,29 @@ const ui = {
         if(valueToFilter.length > 0){
             listSearch.classList.remove('hidden')
             listSearch.classList.add('absolute')
-
             const receitasBuscadas = await api.buscarTodasReceitas()
             const receitasFiltradas = receitasBuscadas.filter(receita =>
                 receita.name.toLowerCase().includes(valueToFilter.toLowerCase()
             ))
-            const listaReceitasParaIndexar = receitasFiltradas.map(receita => this.criarListaResultadoBusca(receita)).join('')
-            searchResults.innerHTML = listaReceitasParaIndexar
+
+            searchResults.innerHTML = ''
+
+            receitasFiltradas.map(receita => {
+                const listItem = document.createElement('li')
+                listItem.textContent = receita.name
+                listItem.classList.add('hover:bg-branco-secundario', 'transition', 'duration-500', 'ease-in-out', 'px-1', 'py-2')
+                listItem.addEventListener('click', () => ui.abrirReceitas(receita.id))
+                searchResults.appendChild(listItem)
+            })
+        } else {
+            listSearch.classList.add('hidden')
+            listSearch.classList.remove('absolute')
+
         }
     },
-    criarListaResultadoBusca(receita){
-        return `<li onclick="ui.abrirReceitas(${receita.id})" class="hover:bg-branco-secundario transition duration-500 ease-in-out px-1 py-2">${receita.name}</li>`
-    }
+    // criarListaResultadoBusca(receita) {
+    //     return `<li onclick="ui.abrirReceitas(${receita.id})" class="hover:bg-branco-secundario transition duration-500 ease-in-out px-1 py-2">${receita.name}</li>`;
+    // }
 }
 window.ui = ui
 export default ui
