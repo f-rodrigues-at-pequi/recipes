@@ -60,8 +60,8 @@ const ui = {
 
             divReceitas.innerHTML = cardsHTML;
         } catch (e) {
-            alert("Erro para acessar receitas mais recentes")
-            console.error("Erro para acessar receitas mais recentes: "+e)
+            alert("Erro para acessar receitas")
+            console.error("Erro para acessar receitas: "+e)
         }
     },
     criarCardReceitas(receita) {

@@ -8,9 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
         data = await data.json();
         data = data.recipes;
 
-        console.log(data)
-
-
         const promises = data.map(data =>
             fetch("http://localhost:3000/recipes", {
                 method: "POST",
